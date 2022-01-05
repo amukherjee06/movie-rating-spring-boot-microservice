@@ -9,46 +9,30 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.arnab.spring.boot.microservices</groupId>
-	<artifactId>spring-boot-config-demo</artifactId>
+	<artifactId>spring-cloud-config-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-boot-config-demo</name>
-	<description>Demo project for Spring Boot</description>
+	<name>spring-cloud-config-server</name>
+	<description>Spring Cloud Config Server for Movie Rating Service</description>
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>2021.0.0</spring-cloud.version>
 	</properties>
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-		<dependency>
-    		<groupId>org.springframework.cloud</groupId>
-    		<artifactId>spring-cloud-starter-bootstrap</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
+			<artifactId>spring-cloud-config-server</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
+	<dependency>
+    	<groupId>org.springframework.cloud</groupId>
+   	 	<artifactId>spring-cloud-starter-bootstrap</artifactId>
+	</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -60,6 +44,7 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
 	<build>
 		<plugins>
 			<plugin>

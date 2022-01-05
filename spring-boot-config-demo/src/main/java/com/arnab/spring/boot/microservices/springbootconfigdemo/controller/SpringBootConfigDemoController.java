@@ -5,6 +5,8 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,6 +19,7 @@ import com.arnab.spring.boot.microservices.springbootconfigdemo.config.DbDetails
  */
 
 @RestController
+@RefreshScope
 public class SpringBootConfigDemoController {
 	
 	//If it doesn't fine my.greeting,the class will still load and pick up
@@ -35,6 +38,13 @@ public class SpringBootConfigDemoController {
 	
 	@Autowired
 	private DbDetails dbDetails;
+	
+	/**
+	 * This is used for looking up profiles and properties
+	 * This should be avoided as much as possible
+	 */
+	@Autowired
+	private Environment environment;
 	
 	@GetMapping("/config-demo")
 	public String getConfig() {
@@ -59,5 +69,10 @@ public class SpringBootConfigDemoController {
 	@GetMapping("/config-demo-bean")
 	public String getConfigBean() {
 		return dbDetails.getConnectionString()+" "+dbDetails.getHost()+" "+dbDetails.getPort();
+	}
+	
+	@GetMapping("/config-demo-envDetails")
+	public String getEnvironmentDetails() {
+		return environment.toString();
 	}
 }
